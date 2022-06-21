@@ -69,7 +69,7 @@
     #upper-panel{
         background-color: #f33;
         height: 45vw;
-        border-radius: 8vw 8vw 0vw 0vw;
+        border-radius: 6vw 6vw 0vw 0vw;
         box-shadow: 0vw 0vw 1vw black;
         color: white;
         
@@ -82,7 +82,7 @@
     #lower-panel{
         background-color: #fff;
         height: 15vw;
-        border-radius: 0vw 0vw 8vw 8vw;
+        border-radius: 0vw 0vw 6vw 6vw;
         box-shadow: 0vw 0vw 1vw black;
         
         display: flex;
@@ -119,7 +119,7 @@
     #upper-panel{
         background-color: #f33;
         height: 60vw;
-        border-radius: 12vw 12vw 0vw 0vw;
+        border-radius: 8vw 8vw 0vw 0vw;
         box-shadow: 0vw 0vw 1.5vw black;
         color: white;
         
@@ -132,7 +132,7 @@
     #lower-panel{
         background-color: #fff;
         height: 20vw;
-        border-radius: 0vw 0vw 12vw 12vw;
+        border-radius: 0vw 0vw 8vw 8vw;
         box-shadow: 0vw 0vw 1.5vw black;
         
         display: flex;
