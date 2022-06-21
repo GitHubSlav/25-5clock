@@ -4,7 +4,7 @@ function ArrowButton(props) {
             className={"arrow-btn " + props.className}
             onClick={props.onClick}
         >
-            <i class={props.arrowIcon}></i>
+            <i className={props.arrowIcon}></i>
         </div>
     );
 }

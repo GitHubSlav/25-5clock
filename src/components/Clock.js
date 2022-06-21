@@ -11,12 +11,60 @@ class Clock extends React.Component {
     super(props);
 
     this.state = {
-      sessionMin: 25,
-      breakMin: 5,
-      timerSec: 1500,
+      sessionMin: 1,
+      breakMin: 1,
+      timerSec: 60,
+      timerId: null,
       isOnSession: true,
       isTicking: false
     };
+
+    this.Reset = this.Reset.bind(this);
+    this.decrementTimer = this.decrementTimer.bind(this);
+    this.SwitchTimer = this.SwitchTimer.bind(this);
+    this.StartPause = this.StartPause.bind(this);
+  }
+
+  Reset() {
+    let defaultState = {
+      sessionMin: 25,
+      breakMin: 5,
+      timerSec: 1500,
+      timerId: null,
+      isOnSession: true,
+      isTicking: false
+    };
+    clearInterval(this.state.timerId);
+    this.setState(defaultState);
+  }
+
+  decrementTimer() {
+    this.setState((state) => ({ timerSec: state.timerSec - 1 }));
+    this.SwitchTimer();
+  }
+
+  StartPause() {
+    if (!this.state.isTicking) {
+      this.setState({
+        isTicking: true,
+        timerId: setInterval(this.decrementTimer, 1000)
+      });
+    } 
+    else {
+      clearInterval(this.state.timerId);
+      this.setState({ isTicking: false, timerId: null });
+    }
+  }
+
+  SwitchTimer(){
+    if (this.state.timerSec <= 0){
+      if (this.state.isOnSession){
+        this.setState({isOnSession: false, timerSec: this.state.breakMin * 60});
+      }
+      else {
+        this.setState({isOnSession: true, timerSec: this.state.sessionMin * 60});
+      }
+    }
   }
 
   toMMSS(time) {
@@ -43,12 +91,12 @@ class Clock extends React.Component {
             <Button
               iconClass={this.state.isTicking ? "fa fa-pause": "fa fa-play"}
               text={this.state.isTicking ? "Pause" : "Start"}
-              onClick={() => console.log("click")}
+              onClick={this.StartPause}
             />
             <Button
               iconClass="fa fa-refresh"
               text=" Reset"
-              onClick={() => console.log("click")}
+              onClick={this.Reset}
             />
           </div>
         </div>
