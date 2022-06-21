@@ -1,0 +1,37 @@
+.length-controls{
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.length-handler{
+    font-size: 2vw;
+}
+
+@media (max-width: 900px){
+    .length-controls{
+        margin-top: 1vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .length-handler{
+        font-size: 3.5vw;
+    }
+}
+
+@media (max-width: 500px){
+    .length-controls{
+        margin-top: 1vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .length-handler{
+        font-size: 5vw;
+    }
+}
