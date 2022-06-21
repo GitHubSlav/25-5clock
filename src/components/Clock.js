@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from './Button.js'
+import LengthHandler from './LengthHandler.js';
 
 import '../styling/Clock.css';
 import '../styling/Button.css';
+import '../styling/LengthHandler.css'
 
 class Clock extends React.Component {
   constructor(props) {
@@ -51,7 +53,18 @@ class Clock extends React.Component {
           </div>
         </div>
         <div id="lower-panel">
-
+          <LengthHandler
+            header="Session Length"
+            time={this.state.sessionMin}
+            minUp={() => console.log("click")}
+            minDown={() => console.log("click")}
+          />
+          <LengthHandler
+            header="Break Length"
+            time={this.state.breakMin}
+            minUp={() => console.log("click")}
+            minDown={() => console.log("click")}
+          />
         </div>
       </div>
     );
