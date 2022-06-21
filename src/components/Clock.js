@@ -19,6 +19,8 @@ class Clock extends React.Component {
       isTicking: false
     };
 
+    this.audioBeep = null;
+
     this.Reset = this.Reset.bind(this);
     this.decrementTimer = this.decrementTimer.bind(this);
     this.SwitchTimer = this.SwitchTimer.bind(this);
@@ -35,6 +37,8 @@ class Clock extends React.Component {
       isTicking: false
     };
     clearInterval(this.state.timerId);
+    this.audioBeep.pause();
+    this.audioBeep.currentTime = 0;
     this.setState(defaultState);
   }
 
@@ -58,6 +62,8 @@ class Clock extends React.Component {
 
   SwitchTimer(){
     if (this.state.timerSec <= 0){
+      this.audioBeep.currentTime = 0;
+      this.audioBeep.play();
       if (this.state.isOnSession){
         this.setState({isOnSession: false, timerSec: this.state.breakMin * 60});
       }
@@ -80,6 +86,10 @@ class Clock extends React.Component {
   render() {
     return (
       <div id="clock">
+        <audio id="beep" preload="auto"
+          ref={(audio) => {this.audioBeep = audio;}}
+          src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav">
+        </audio>
         <div id="upper-panel">
           <div id="timer-label" className="shadowed-text">
             {this.state.isOnSession ? "Session" : "Break"}
