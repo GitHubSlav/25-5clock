@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
+#clock{
+    width: 40vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    
+    font-family: Rubik, sans-serif;
+}
+  
+#upper-panel{
+    background-color: #f33;
+    height: 30vw;
+    border-radius: 4vw 4vw 0vw 0vw;
+    box-shadow: 0vw 0vw 0.5vw black;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+#lower-panel{
+    background-color: #fff;
+    height: 10vw;
+    border-radius: 0vw 0vw 4vw 4vw;
+    box-shadow: 0vw 0vw 0.5vw black;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 900px){
+    #clock{
+        width: 60vw;
+        height: 60vw;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        
+        font-family: Rubik, sans-serif;
+    }
+      
+    #upper-panel{
+        background-color: #f33;
+        height: 45vw;
+        border-radius: 8vw 8vw 0vw 0vw;
+        box-shadow: 0vw 0vw 1vw black;
+        color: white;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+      
+    #lower-panel{
+        background-color: #fff;
+        height: 15vw;
+        border-radius: 0vw 0vw 8vw 8vw;
+        box-shadow: 0vw 0vw 1vw black;
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px){
+    #clock{
+        width: 80vw;
+        height: 80vw;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        
+        font-family: Rubik, sans-serif;
+    }
+      
+    #upper-panel{
+        background-color: #f33;
+        height: 60vw;
+        border-radius: 12vw 12vw 0vw 0vw;
+        box-shadow: 0vw 0vw 1.5vw black;
+        color: white;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+      
+    #lower-panel{
+        background-color: #fff;
+        height: 20vw;
+        border-radius: 0vw 0vw 12vw 12vw;
+        box-shadow: 0vw 0vw 1.5vw black;
+        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
