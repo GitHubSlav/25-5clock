@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
   
 #lower-panel{
@@ -39,6 +39,20 @@
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+}
+
+#timer-label{
+    font-size: 3vw;
+}
+  
+#time-left{
+    font-size: 10vw;
+    font-family: Rubik, monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.shadowed-text{
+    text-shadow: 0vw -0.1vw 0.5vw black;
 }
 
 @media (max-width: 900px){
@@ -62,7 +76,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
       
     #lower-panel{
@@ -74,6 +88,20 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+
+    #timer-label{
+        font-size: 4.5vw;
+    }
+      
+    #time-left{
+        font-size: 15vw;
+        font-family: Rubik, monospace;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .shadowed-text{
+        text-shadow: 0vw -0.2vw 0.75vw black;
     }
 }
 
@@ -98,7 +126,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
       
     #lower-panel{
@@ -110,5 +138,19 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+
+    #timer-label{
+        font-size: 4.5vw;
+    }
+      
+    #time-left{
+        font-size: 20vw;
+        font-family: Rubik, monospace;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .shadowed-text{
+        text-shadow: 0vw -0.4vw 1vw black;
     }
 }
