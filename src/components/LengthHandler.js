@@ -8,14 +8,16 @@ function LengthHandler(props){
             <div className="length-controls">
                 <ArrowButton 
                     arrowIcon="fa fa-arrow-up" 
-                    onClick={props.minUp}
+                    onClick={props.arrowClick}
                     className="arrow-up"
+                    increment={1}
                 />
                 <div>{props.time + " min"}</div>
                 <ArrowButton 
                     arrowIcon="fa fa-arrow-down" 
-                    onClick={props.minDown}
+                    onClick={props.arrowClick}
                     className="arrow-down"
+                    increment={-1}
                 />
           </div>
         </div>

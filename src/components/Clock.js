@@ -11,9 +11,9 @@ class Clock extends React.Component {
     super(props);
 
     this.state = {
-      sessionMin: 1,
-      breakMin: 1,
-      timerSec: 60,
+      sessionMin: 25,
+      breakMin: 5,
+      timerSec: 1500,
       timerId: null,
       isOnSession: true,
       isTicking: false
@@ -25,6 +25,9 @@ class Clock extends React.Component {
     this.decrementTimer = this.decrementTimer.bind(this);
     this.SwitchTimer = this.SwitchTimer.bind(this);
     this.StartPause = this.StartPause.bind(this);
+
+    this.AddSessionMinutes = this.AddSessionMinutes.bind(this);
+    this.AddBreakMinutes = this.AddBreakMinutes.bind(this);
   }
 
   Reset() {
@@ -73,6 +76,40 @@ class Clock extends React.Component {
     }
   }
 
+  AddSessionMinutes(min){
+    this.setState((state) => {
+      if (!state.isTicking){
+        if (state.sessionMin + min > 0 && state.sessionMin + min <= 60 ) {
+          if (state.isOnSession) {
+            return {
+              sessionMin: state.sessionMin + min,
+              timerSec: (state.sessionMin + min) * 60
+            };
+          }
+  
+          return { sessionMin: state.sessionMin + min };
+        }
+      }
+    });
+  }
+
+  AddBreakMinutes(min) {
+    this.setState((state) => {
+      if (!state.isTicking) {
+        if (state.breakMin + min > 0 && state.breakMin + min <= 60) {
+          if (!state.isOnSession) {
+            return {
+              breakMin: state.breakMin + min,
+              timerSec: (state.breakMin + min) * 60
+            };
+          }
+
+          return { breakMin: state.breakMin + min };
+        }
+      }
+    });
+  }
+
   toMMSS(time) {
     let minutes = Math.floor(time / 60);
     let seconds = time % 60;
@@ -114,14 +151,16 @@ class Clock extends React.Component {
           <LengthHandler
             header="Session Length"
             time={this.state.sessionMin}
-            minUp={() => console.log("click")}
-            minDown={() => console.log("click")}
+            arrowClick={this.AddSessionMinutes}
+            valueUp={1}
+            valueDown={-1}
           />
           <LengthHandler
             header="Break Length"
             time={this.state.breakMin}
-            minUp={() => console.log("click")}
-            minDown={() => console.log("click")}
+            arrowClick={this.AddBreakMinutes}
+            valueUp={1}
+            valueDown={-1}
           />
         </div>
       </div>
